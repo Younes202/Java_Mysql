@@ -14,13 +14,16 @@ public class testing {
 			Class.forName("com.mysql.cj.jdbc.Driver"); 
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/students_java","root","");
 			Statement st = con.createStatement(); 
-		}catch (Exception e)
+			ResultSet res = st.executeQuery("select *from std"); 
+			while(res.next()){
+				System.out.println("Id" + res.getInt(1) + "---  Name :  "+ res.getString(2)+ "---- Age : "+res.getInt(3) +"----- Phone : "+res.getString(4)); 
+			}
+		}catch (Exception e) 
 		{
-			System.out.println(e);
+			// TODO Auto-generated catch block System.out.println(e);
+				    	  System.out.println(e);
+
 		}
-
-
-	
 
 	}
 	
