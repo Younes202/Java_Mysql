@@ -12,25 +12,23 @@ public class Delete {
 		
 		  Scanner input = new Scanner(System.in);
 
+               System.out.println("Write the  Name of personne who would delete ?  ");
+		String del = input.nextLine();
+		
 
-	      try {
-	    	  
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/students_java","root","");
- 
-			System.out.println("Write Name of student  to delete it :");
-			String Name = input.nextLine();		
-	        String sql = "DELETE  FROM STD WHERE Name = "+Name+"";
-		    Statement st = con.createStatement();	
-	        st.executeUpdate(sql);	  
-	        
-	       System.out.println("Deleting of  Student : "+Name+" Effected in data base ");
-	       
-	      }catch (Exception e) {
-	  		// TODO Auto-generated catch block
-	    	  System.out.println(e);
+		Delete(del);
 	      
-		}
+	    	  try {
+     		Class.forName("com.mysql.cj.jdbc.Driver"); 
+     		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Personne","root","");
+
+     		PreparedStatement st = con.prepareStatement("delete from personne where Name=?");
+     		st.setString(1, del);
+     		st.executeUpdate();
+     		System.out.println("Delete  successfully ");
+        }catch(Exception e){
+     	   System.out.println(e);
+        }
 	 
 
 	}
