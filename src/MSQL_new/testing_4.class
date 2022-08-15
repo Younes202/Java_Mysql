@@ -20,13 +20,13 @@ public class testing_4.class{
         String name_update = input.nextLine();
         
 		System.out.println("Write the new  Name ");
-		String PersonneName = input.nextLine();
+		String PName = input.nextLine();
 		System.out.println("Write the new  LastName ");
-		String PersonneLastName = input.nextLine();
+		String PLastName = input.nextLine();
 		System.out.println("Write new Phone ");
-		String PersonnePhone = input.nextLine();
+		String PPhone = input.nextLine();
 		System.out.println("Write new Age ");
-		int PersonneAge = input.nextInt();
+		int PAge = input.nextInt();
 		System.out.println("Before updating");
  try {
      		Class.forName("com.mysql.cj.jdbc.Driver"); 
