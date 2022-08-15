@@ -1,0 +1,46 @@
+ package Crud_java;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
+import java.util.Scanner;
+
+
+import java.sql.DriverManager;
+
+public class testing_4.class{
+ public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    Scanner input = new Scanner(System.in);
+       int id=0;
+
+
+		System.out.println("Write Name of personne who you would update");
+        String name_update = input.nextLine();
+        
+		System.out.println("Write the new  Name ");
+		String PersonneName = input.nextLine();
+		System.out.println("Write the new  LastName ");
+		String PersonneLastName = input.nextLine();
+		System.out.println("Write new Phone ");
+		String PersonnePhone = input.nextLine();
+		System.out.println("Write new Age ");
+		int PersonneAge = input.nextInt();
+		System.out.println("Before updating");
+ try {
+     		Class.forName("com.mysql.cj.jdbc.Driver"); 
+     		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Personne","root","");
+
+     		PreparedStatement st = con.prepareStatement("update  personne set Name= ? , LastName=? , Phone = ? , Age =?  where Name = ?");
+     		st.setString(1,PName);
+     		st.setString(2,PLastName);
+     		st.setString(3,PPhone);
+     		st.setInt(4,PAge);
+     		st.setString(5,Name_updated);
+     		st.executeUpdate();
+     		System.out.println("Updating  successfully ");
+        }catch(Exception e){
+     	   System.out.println(e);
+        }
+        }
